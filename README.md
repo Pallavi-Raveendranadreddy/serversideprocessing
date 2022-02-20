@@ -27,16 +27,24 @@ Publish the website in the given URL.
 
 ### HTML CODING:
 <!DOCTYPE html>
+
 <html>
+    
 <head>
     <meta charset='utf-8'>
+    
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    
     <title>Page Title</title>
+    
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     
 </head>
+    
 <style>
+    
     .container{
+    
     width: 1080px;
     height: 300px;
     margin-top: 100px;
@@ -81,7 +89,7 @@ Publish the website in the given URL.
     
 </body>
 </html>
-### CODING FOR VIEWS.PY
+CODING FOR VIEWS.PY
 from django.shortcuts import render
 
 # Create your views here.
