@@ -26,39 +26,42 @@ Publish the website in the given URL.
 ## PROGRAM :
 
 ### HTML CODING:
+### area.html:
 <!DOCTYPE html>
-
 <html>
-    
 <head>
     <meta charset='utf-8'>
-    
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    
     <title>Page Title</title>
-    
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     
 </head>
-    
 <style>
-    
+    *{
+        box-sizing: border-box;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+
+    body{
+    background-color: rgb(183, 44, 238);
+    }
+
     .container{
-    
     width: 1080px;
-    height: 300px;
+    height: 350px;
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
-    border-width: 1px 1px 1px 1px;
-    border-style: solid;
-    box-shadow: 15px 15px 8px gray;
-    background-color:lavenderblush;
-}
-    .heading{
-        text-align: center;
+    border-radius: 25px;
+    border: 10px solid rgba(151, 92, 117, 0);
+    box-shadow: inset 0 0 15px rgb(86, 6, 161);
+    background-color:rgb(188, 133, 240);
     }
-    .content{
+    h1{
+        text-align: center;
+        padding-top: 15px;
+    }
+    .calculate{
         padding-top: 10px;
         padding-bottom: 10px;
         padding-left: 10px;
@@ -67,56 +70,51 @@ Publish the website in the given URL.
         font-size: 20px;
     }
 </style>
-<body style="background-color:aquamarine;">
+<body>
     <div class="container">
-        <h1  class="heading">AREA OF A RECTANGLE</h1>
+        <h1>AREA OF A RECTANGLE</h1>
         <form method="POST">
-            {% csrf_token %}
-            <div class="content"> 
-                Length=<input type="text" name="length" value={{l}}></input><br/>
+            <div class="calculate"> 
+                Base:<input type="text" name="base" value=></input><br/>
             </div>
-            <div class="content">
-                Breadth=<input type="text" name="breadth" value={{b}}></input><br/>
+            <div class="calculate">
+                Height:<input type="text" name="height" value=></input><br/>
             </div>
-            <div class="content">
+            <div class="calculate">
                 <input type="submit" value="Calculatearea"></input><br/>
             </div>
-            <div class="content">
-                Area=<input type="text" name="area" value={{area}}></input>
+            <div class="calculate">
+                Area:<input type="text" name="area" value=></input>
             </div>
         </form>
     </div>
-    
 </body>
-</html>
-CODING FOR VIEWS.PY
+### views.py:
 from django.shortcuts import render
 
-# Create your views here.
 def areacalculation(request):
     context ={}
     context["area"]='0'
-    context["l"]='0'
     context["b"]='0'
+    context["h"]='0'
     if request.method == 'POST':
         
-        l=request.POST.get('length','0')
-        b=request.POST.get('breadth','0')
+        l=request.POST.get('base','0')
+        b=request.POST.get('height','0')
         area=int(l)*int(b)
         context['area'] = area
-        context['l']=l
         context['b']=b
+        context['h']=h
     return render(request,"mathapp/area.html",context)
-### CODING FOR URLS.PY
-from django.contrib import admin
-from django.urls import path
+ ### urls.py   
+ from django.urls import path
 from mathapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('areaofrectangle/',views.areacalculation,name="areaofrectangle"),
-    path('',views.areacalculation,name="areaofrectangleroot")
-]
+    path('',views.areacalculation,name="areaofrectangle")
+]   
 ## OUTPUT:
 
 <img width="863" alt="n1" src="https://user-images.githubusercontent.com/94294872/154849809-24f3566e-491d-44d9-a8fd-f3265d7db322.png">
