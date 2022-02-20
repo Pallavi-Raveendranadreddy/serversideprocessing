@@ -27,6 +27,7 @@ Publish the website in the given URL.
 
 ### HTML CODING:
 ### area.html:
+```
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +42,6 @@ Publish the website in the given URL.
         box-sizing: border-box;
         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
     }
-
     body{
     background-color: rgb(183, 44, 238);
     }
@@ -89,6 +89,7 @@ Publish the website in the given URL.
         </form>
     </div>
 </body>
+```
 ### views.py:
 from django.shortcuts import render
 
