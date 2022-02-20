@@ -91,6 +91,7 @@ Publish the website in the given URL.
 </body>
 ```
 ### views.py:
+```
 from django.shortcuts import render
 
 def areacalculation(request):
@@ -107,7 +108,9 @@ def areacalculation(request):
         context['b']=b
         context['h']=h
     return render(request,"mathapp/area.html",context)
- ### urls.py   
+```    
+ ### urls.py  
+ ```
  from django.urls import path
 from mathapp import views
 
@@ -115,7 +118,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('areaofrectangle/',views.areacalculation,name="areaofrectangle"),
     path('',views.areacalculation,name="areaofrectangle")
-]   
+]
+```
 ## OUTPUT:
 
 <img width="863" alt="n1" src="https://user-images.githubusercontent.com/94294872/154849809-24f3566e-491d-44d9-a8fd-f3265d7db322.png">
